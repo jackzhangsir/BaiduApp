@@ -21,6 +21,7 @@
 	font-size:35px;
 	font-family: sans-serif;
 	font-weight:bold;
+	color:#AAA;
 }
 
 .leftBar{
@@ -67,19 +68,43 @@
 	</form>
 	</div>
 	
-	<?php 
-		$in_year = $_POST['year'];
-		if(isset && $in_year){
-			echo $in_year
-		}	
-	?>
+	
 	
 	<div class="res">
-	<fieldset>
+	<fieldset style="height:140px;">
     <legend align="center" >你的属相</legend>
-    <img src="./images/0.jpg">
+	
+	<?php 
+		$in_year = $_POST['year'];
+		if(isset($in_year) && ($in_year >1914 && $in_year <2114) ){
+			$sx = $in_year%12;
+			//echo $sx;
+			
+	?>
+	<img src="./images/<?php echo $sx ?>.jpg" >
+	<?php
+		}else{
+			echo "请输入正确的出生年";
+		}
+		//echo $in_year
+		
+	?>
+	
+	
+	<?php
+	
+	?>
+    
   </fieldset>
 	</div>
 </div>
 </body>
+
+
+<script src="http://app.baidu.com/static/appstore/monitor.st"></script>
+<script>
+baidu.app.autoHeight();
+baidu.app.setHeight(150);
+</script>
+
 </html>
