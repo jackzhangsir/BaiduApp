@@ -62,8 +62,8 @@
 	</div>
 	
 	<div class="but">
-	<input type="image" src="./images/query.jpg" width="100"/>
-	<input type="image" src="./images/clear.jpg" width="100"/>	
+	<input type="image" src="./images/query.jpg" name="submit" width="100"/>
+	<input type="image" src="./images/clear.jpg" name="reset" width="100"/>	
 	</div>
 	</form>
 	</div>
@@ -75,8 +75,10 @@
     <legend align="center" >你的属相</legend>
 	
 	<?php 
-		$in_year = $_POST['year'];
-		if(isset($in_year) && ($in_year >1914 && $in_year <2114) ){
+		//$in_year = &quot;&quot;;
+		@$in_year = $_POST['year'];
+		if( isset($in_year) && ($in_year >1914 && $in_year <2114) ){
+		
 			$sx = $in_year%12;
 			//echo $sx;
 			
@@ -84,16 +86,16 @@
 	<img src="./images/<?php echo $sx ?>.jpg" >
 	<?php
 		}else{
-			echo "请输入正确的出生年";
+	?>
+		<font color="red"><?php echo "请输入正确的出生年!";?></font>		
+	<?php
 		}
 		//echo $in_year
 		
 	?>
 	
 	
-	<?php
 	
-	?>
     
   </fieldset>
 	</div>
